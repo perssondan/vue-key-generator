@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <KeyGen></KeyGen>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import KeyGen from './components/KeyGen.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    KeyGen,
   }
 }
 </script>
