@@ -6,7 +6,8 @@
         type="textarea"
         placeholder="Basic Textarea"
       />
-      <n-checkbox v-model:checked="useCharacters">Use characters</n-checkbox>
+      <n-checkbox v-model:checked="useLowerCaseCharacters">Use lower case characters</n-checkbox>
+      <n-checkbox v-model:checked="useUpperCaseCharacters">Use upper case characters</n-checkbox>
       <n-checkbox v-model:checked="useNumbers">Use numbers</n-checkbox>
       <n-checkbox v-model:checked="useSpecialCharacters">Use special characters</n-checkbox>
       <n-button @click="generatePassword">Generate!</n-button>
@@ -32,12 +33,14 @@
     },
     data() {
         return {
-            characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'],
+            charactersLowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'],
+            charactersUpperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
             numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
             specialCharacters: ['-', '@', '!', '#', '$', '%', '^', '&', '*', '=', '+', '-', ',', '.', '<', '>'],
             generatedPassword: 'hejsan svejsan',
             passwordLength: 10,
-            useCharacters: true,
+            useLowerCaseCharacters: true,
+            useUpperCaseCharacters: true,
             useNumbers: false,
             useSpecialCharacters: false
         }
@@ -62,8 +65,11 @@
         },
         getPasswordSources() {
             let passwordSource = [];
-            if (this.useCharacters) {
-                passwordSource = [...passwordSource, ...this.characters];
+            if (this.useLowerCaseCharacters) {
+                passwordSource = [...passwordSource, ...this.charactersLowerCase];
+            }
+            if (this.useUpperCaseCharacters) {
+                passwordSource = [...passwordSource, ...this.charactersUpperCase];
             }
             console.log('passwordSource: ', passwordSource.length);
             if (this.useNumbers) {

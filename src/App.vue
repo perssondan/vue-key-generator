@@ -1,5 +1,5 @@
 <template>
-  <KeyGen></KeyGen>
+  <KeyGen />
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import KeyGen from './components/KeyGen.vue'
 export default {
   name: 'App',
   components: {
-    KeyGen,
+    KeyGen
   }
 }
 </script>
