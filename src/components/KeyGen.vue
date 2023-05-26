@@ -1,10 +1,10 @@
 <template>
-    <n-space vertical>
-      <n-input v-model:value="generatedPassword" type="text" placeholder="Basic Input" />
+    <n-space vertical style="align-self: center;">
       <n-input
         v-model:value="generatedPassword"
         type="textarea"
-        placeholder="Basic Textarea"
+        placeholder="Password"
+        readonly="true"
       />
       <n-checkbox v-model:checked="useLowerCaseCharacters">Use lower case characters</n-checkbox>
       <n-checkbox v-model:checked="useUpperCaseCharacters">Use upper case characters</n-checkbox>

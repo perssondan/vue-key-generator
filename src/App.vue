@@ -1,5 +1,7 @@
 <template>
-  <KeyGen />
+  <div style="width: 50%; display: inline-grid;">
+    <KeyGen />
+  </div>
 </template>
 
 <script>
