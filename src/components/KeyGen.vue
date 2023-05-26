@@ -10,13 +10,16 @@
       <n-checkbox v-model:checked="useUpperCaseCharacters">Use upper case characters</n-checkbox>
       <n-checkbox v-model:checked="useNumbers">Use numbers</n-checkbox>
       <n-checkbox v-model:checked="useSpecialCharacters">Use special characters</n-checkbox>
+      <n-checkbox v-model:checked="useLocaleCharacters">Use locale characters (å, ä, ö)</n-checkbox>
+      <n-slider v-model:value="passwordLength" :max="25" :min="5" />
+      <n-input-number v-model:value="passwordLength" :max="25" :min="5" />
       <n-button @click="generatePassword">Generate!</n-button>
     </n-space>
 </template>
 
 <script>
   import { ref } from "vue";
-  import { NInput, NSpace, NCheckbox, NButton } from 'naive-ui'
+  import { NInput, NSpace, NCheckbox, NButton, NSlider, NInputNumber } from 'naive-ui'
 
   export default {
     name: 'KeyGen',
@@ -24,7 +27,9 @@
         NInput,
         NSpace,
         NCheckbox,
-        NButton
+        NButton,
+        NSlider,
+        NInputNumber
     },
     setup() {
       return {
