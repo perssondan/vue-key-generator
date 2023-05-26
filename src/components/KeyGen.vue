@@ -38,16 +38,19 @@
     },
     data() {
         return {
-            charactersLowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'],
-            charactersUpperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
+            charactersLowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'z'],
+            charactersUpperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Z'],
+            localeCharactersLowerCase: ['å', 'ä', 'ö'],
+            localeCharactersUpperCase: ['Å', 'Ä', 'Ö'],
             numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
             specialCharacters: ['-', '@', '!', '#', '$', '%', '^', '&', '*', '=', '+', '-', ',', '.', '<', '>'],
-            generatedPassword: 'hejsan svejsan',
+            generatedPassword: '',
             passwordLength: 10,
             useLowerCaseCharacters: true,
             useUpperCaseCharacters: true,
             useNumbers: false,
-            useSpecialCharacters: false
+            useSpecialCharacters: false,
+            useLocaleCharacters: false
         }
     },
     methods: {
@@ -71,10 +74,10 @@
         getPasswordSources() {
             let passwordSource = [];
             if (this.useLowerCaseCharacters) {
-                passwordSource = [...passwordSource, ...this.charactersLowerCase];
+                passwordSource = [...passwordSource, ...this.charactersLowerCase, ...(this.useLocaleCharacters ? this.localeCharactersLowerCase : [])];
             }
             if (this.useUpperCaseCharacters) {
-                passwordSource = [...passwordSource, ...this.charactersUpperCase];
+                passwordSource = [...passwordSource, ...this.charactersUpperCase, ...(this.useLocaleCharacters ? this.localeCharactersUpperCase : [])];
             }
             console.log('passwordSource: ', passwordSource.length);
             if (this.useNumbers) {
